@@ -1,6 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+require("dotenv").config();
+
+const root = process.env.ROOT;
 
 const Expense = require("./models/expense");
 const User = require("./models/user");
@@ -30,6 +33,6 @@ sequelize
   // .sync({ force: "true" })
   .sync()
   .then((res) => {
-    app.listen(3030);
+    app.listen(root);
   })
   .catch((err) => console.log(err));
